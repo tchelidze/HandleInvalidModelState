@@ -5,7 +5,7 @@
 
 In a typical scenario, post action method starts with checking `ModelState`'s validity and if it's invalid returning wiew with invalid model
 
-```
+```c#
 [HttpPost]
 public IActionResult Create(CreateViewModel model)
 {
@@ -16,9 +16,9 @@ public IActionResult Create(CreateViewModel model)
 }
 ```
 
-This boilerplate code (checking `ModelState`'s validity and returning a view) can be iliminated with corresponding action filter.
+This boilerplate code (checking `ModelState`'s validity and returning a view) can be eliminated with corresponding action filter.
 
-```
+```c#
 [HttpPost]
 [TypeFilter(typeof(HandleInvalidModelWithViewActionFilterAttribute))]
 public IActionResult Create(CreateViewModel model)

@@ -28,3 +28,9 @@ public IActionResult Create(CreateViewModel model)
    return View();
 }
 ```
+
+For detailed instruction for handling invalid `ModelState` with
+
+- [View](https://github.com/tchelidze/HandleInvalidModelState/wiki/Handle-with-View)
+- [Json](https://github.com/tchelidze/HandleInvalidModelState/wiki/Handle-with-Json)
+- [Redirect](https://github.com/tchelidze/HandleInvalidModelState/wiki/Handle-with-Redirect)

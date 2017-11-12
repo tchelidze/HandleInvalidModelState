@@ -50,5 +50,14 @@ namespace HandleInvalidModelState.Demo.Controllers
         })]
         public IActionResult JsonCaseTwo(SimpleViewModel model)
             => Json(new { success = true });
+
+        [TypeFilter(typeof(HandleInvalidModelWithRedirectActionFilterAttribute), Arguments = new object[]
+        {
+            "/Demo/EntityNotFound"
+        })]
+        public IActionResult RedirectCaseOne(GetDetailsViewModel model)
+            => View();
+
+        public IActionResult EntityNotFound() => View();
     }
 }

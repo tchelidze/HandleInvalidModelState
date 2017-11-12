@@ -10,10 +10,7 @@ namespace HandleInvalidModelState.ActionFilters
     {
         private readonly Type _jsonResultFormatterType;
 
-        public HandleInvalidModelWithJsonActionFilterAttribute()
-            => _jsonResultFormatterType = typeof(DefaultJsonResultFormatter);
-
-        public HandleInvalidModelWithJsonActionFilterAttribute(Type jsonResultFormatterType)
+        public HandleInvalidModelWithJsonActionFilterAttribute(Type jsonResultFormatterType = null)
             => _jsonResultFormatterType = jsonResultFormatterType;
 
         public override Task OnActionWithInvalidModelStateExecutionAsync(
@@ -21,7 +18,9 @@ namespace HandleInvalidModelState.ActionFilters
             ActionExecutionDelegate next)
         {
             var resultFormatter =
-                (IJsonResultFormatter)context.HttpContext.RequestServices.GetService(_jsonResultFormatterType);
+                _jsonResultFormatterType == null
+                    ? new DefaultJsonResultFormatter()
+                    : (IJsonResultFormatter)context.HttpContext.RequestServices.GetService(_jsonResultFormatterType);
             var viewModel = context.ActionArguments.First().Value;
             context.Result = resultFormatter.Format(viewModel, context.ModelState);
             return Task.CompletedTask;

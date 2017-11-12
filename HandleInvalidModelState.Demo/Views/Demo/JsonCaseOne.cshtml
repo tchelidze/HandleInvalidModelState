@@ -1,0 +1,22 @@
+﻿@model SimpleViewModel
+
+Json Case One
+
+<br/>
+<form asp-action="JsonCaseOne" asp-controller="Demo" id="demo-form">
+    <input asp-for="FirstName"/>
+    <span asp-validation-for="FirstName"></span>
+    <br/>
+    <button id="submit-button"> Submit </button>
+</form>
+
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#submit-button")
+        .click(function() {
+            $.post("Demo/JsonCaseOne", ("#demo-form").serialize())
+                .done(function(response) {
+                    alert("Response : ", response);
+                });
+        });
+</script>

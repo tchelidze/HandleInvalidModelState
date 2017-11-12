@@ -15,7 +15,8 @@ namespace HandleInvalidModelState.Demo
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ComplexViewModelInitializer>();
+            services.AddScoped<ComplexViewModelInitializer>();
+            services.AddScoped<CustomJsonResultFormatter>();
 
             services
                 .AddMvc()

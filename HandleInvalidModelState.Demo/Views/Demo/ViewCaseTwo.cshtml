@@ -1,0 +1,12 @@
+﻿@model ComplexViewModel
+Case Two
+<br />
+<form asp-action="ViewCaseTwo" asp-controller="Demo">
+    <input asp-for="FirstName" />
+    <span asp-validation-for="FirstName"></span>
+    <br />
+    <select asp-for="Age" asp-items="Model.AgeSelectListItems"></select>
+    <span asp-validation-for="Age"></span>
+    <br />
+    <button type="submit"> Submit </button>
+</form>

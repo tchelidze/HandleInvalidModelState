@@ -1,0 +1,9 @@
+﻿@model SimpleViewModel
+Case One
+<br />
+<form asp-action="ViewCaseTwo" asp-controller="Demo">
+    <input asp-for="FirstName" />
+    <span asp-validation-for="FirstName"></span>
+    <br />
+    <button type="submit"> Submit </button>
+</form>

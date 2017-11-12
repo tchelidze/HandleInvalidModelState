@@ -1,6 +1,9 @@
 # HandleInvalidModelState 
   Handy action filters to eliminate/automate ModelState validition check.
 
+# [Nuget](https://www.nuget.org/packages/HandleInvalidModelState)
+
+`PM> Install-Package HandleInvalidModelState`
 
 # Overview
 

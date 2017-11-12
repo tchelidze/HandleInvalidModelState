@@ -1,5 +1,10 @@
-﻿<a asp-action="ViewCaseOne" asp-controller="Demo">View Case one </a> <br />
-<a asp-action="ViewCaseTwo" asp-controller="Demo">View Case two </a> <br />
-<a asp-action="JsonCaseOne" asp-controller="Demo">Json Case one </a> <br />
-<a asp-action="JsonCaseTwo" asp-controller="Demo">Json Case two </a> <br />
-<a asp-action="RedirectCaseOne" asp-controller="Demo" asp-route-EntityId="-1">Redirect Case one </a> <br />
+﻿<h1>Handle with view </h1>
+<a asp-action="ViewCaseOne" asp-controller="HandleWithView">View Case one </a> <br />
+<a asp-action="ViewCaseTwo" asp-controller="HandleWithView">View Case two </a> <br />
+<hr />
+<h1>Handle with Json </h1>
+<a asp-action="JsonCaseOne" asp-controller="HandleWithJson">Json Case one </a> <br />
+<a asp-action="JsonCaseTwo" asp-controller="HandleWithJson">Json Case two </a> <br />
+<hr />
+<h1>Handle with Redirect </h1>
+<a asp-action="RedirectCaseOne" asp-controller="HandleWithRedirect" asp-route-EntityId="-1">Redirect Case one </a> <br />

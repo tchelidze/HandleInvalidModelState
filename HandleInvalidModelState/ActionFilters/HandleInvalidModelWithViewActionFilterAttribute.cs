@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace HandleInvalidModelState.ActionFilters
@@ -18,7 +19,8 @@ namespace HandleInvalidModelState.ActionFilters
         public HandleInvalidModelWithViewActionFilterAttribute(
             Type viewModelInitializerType = null)
         {
-            if (!typeof(IViewModelInitializer).IsAssignableFrom(viewModelInitializerType))
+            if (viewModelInitializerType != null
+                && !typeof(IViewModelInitializer).IsAssignableFrom(viewModelInitializerType))
             {
                 throw new InvalidViewModelInitializerTypeException(viewModelInitializerType);
             }

@@ -2,7 +2,7 @@
 Json Case Two
 
 <br />
-<form asp-action="JsonCaseTwo" asp-controller="Demo" id="demo-form">
+<form asp-action="JsonCaseTwo" asp-controller="HandleWithJson" id="demo-form">
     <input asp-for="FirstName" />
     <span asp-validation-for="FirstName"></span>
     <br />
@@ -13,7 +13,7 @@ Json Case Two
 <script>
     $("#submit-button")
         .click(function () {
-            $.post("Demo/JsonCaseTwo", ("#demo-form").serialize())
+            $.post("HandleWithJson/JsonCaseTwo", ("#demo-form").serialize())
                 .done(function (response) {
                     alert("Response : ", response);
                 });

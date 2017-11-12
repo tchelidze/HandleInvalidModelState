@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HandleInvalidModelState.Demo.Controllers
 {
-    public class DemoController : Controller
+    public class HandleWithViewController : Controller
     {
         private readonly ComplexViewModelInitializer _complexViewModelInitializer;
 
-        public DemoController(
+        public HandleWithViewController(
             ComplexViewModelInitializer complexViewModelInitializer)
             => _complexViewModelInitializer = complexViewModelInitializer;
 
@@ -31,33 +31,5 @@ namespace HandleInvalidModelState.Demo.Controllers
             })]
         public IActionResult ViewCaseTwo(ComplexViewModel model)
             => View();
-
-        public IActionResult JsonCaseOne()
-            => View();
-
-        [HttpPost]
-        [TypeFilter(typeof(HandleInvalidModelWithJsonActionFilterAttribute))]
-        public IActionResult JsonCaseOne(SimpleViewModel model)
-            => Json(new { success = true });
-
-        public IActionResult JsonCaseTwo()
-            => View();
-
-        [HttpPost]
-        [TypeFilter(typeof(HandleInvalidModelWithJsonActionFilterAttribute), Arguments = new object[]
-        {
-            typeof(CustomJsonResultFormatter)
-        })]
-        public IActionResult JsonCaseTwo(SimpleViewModel model)
-            => Json(new { success = true });
-
-        [TypeFilter(typeof(HandleInvalidModelWithRedirectActionFilterAttribute), Arguments = new object[]
-        {
-            "/Demo/EntityNotFound"
-        })]
-        public IActionResult RedirectCaseOne(GetDetailsViewModel model)
-            => View();
-
-        public IActionResult EntityNotFound() => View();
     }
 }

@@ -1,4 +1,4 @@
-# HandleInvalidModelState 
+# HandleInvalidModelState - ~~`ModelState.IsValid`~~
   Handy action filters to eliminate/automate ~~`ModelState.IsValid`~~ check.
 
 # [Nuget](https://www.nuget.org/packages/HandleInvalidModelState)
